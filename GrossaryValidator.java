@@ -13,9 +13,9 @@ public class GrossaryValidator {
 	}
 
 	public static boolean validateGrossaryName(String name) throws GrossaryException {
-		String custPattern = "*[a-zA-Z]{3}";
+		
 
-		if ((name.isEmpty() || !"".equals(name)) && Pattern.matches(custPattern, name)) {
+		if ((name.isEmpty() || !"".equals(name)) && name.length()>=3) {
 			return true;
 		} else {
 			throw new GrossaryException("Grossary Name should be max 3 letter");
