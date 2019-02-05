@@ -10,7 +10,7 @@ public class GrossaryUI {
 		System.out.println("");
 		while (true) {
 			System.out.println("-------------MENU--------------");
-			System.out.println("1. Buy Grossary \n" + "2. Read Grossary\n" + "3. Exit.");
+			System.out.println("1. Buy Grossary \n" +  "2. Exit.");
 			System.out.println("Enter Your choice:-");
 			Scanner sc = new Scanner(System.in);
 			int op = sc.nextInt();
@@ -27,9 +27,14 @@ public class GrossaryUI {
 					int qunt = sc.nextInt();
 					GrossaryValidator.validateGrossaryQuntity("" + qunt);
 					int refId = new Random().nextInt(10000);// Random number for ref ID
+					
 					GrossaryDetails GD = new GrossaryDetails(refId, name, qunt, type);
 					new GrossaryHelper().addGrossary(GD);
 					System.out.println("-------------Done--------------");
+
+					System.out.println("-------------Details As follow--------------");
+
+					new GrossaryHelper().readGrossary();
 
 				} catch (GrossaryException e) {
 					// TODO Auto-generated catch block
@@ -41,10 +46,6 @@ public class GrossaryUI {
 
 				break;
 			case 2:
-				new GrossaryHelper().readGrossary();
-
-				break;
-			case 3:
 				System.out.println("Thank you shop with us");
 				System.exit(0);
 				break;
